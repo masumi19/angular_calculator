@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      電卓
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div >
+    <ion-input class="display" id="display"[(ngModel)]="display"></ion-input>
+  <ion-button (click)="erase()">C</ion-button>
+  </div>
+  <div>
+    <ion-button fill="outline" (click)="symbol('7')" >7</ion-button>
+    <ion-button fill="outline" (click)="symbol('8')">8</ion-button>
+    <ion-button fill="outline" (click)="symbol('9')">9</ion-button>
+    <ion-button (click)="symbol('/')">÷</ion-button>
+  </div>
+  <div>
+    <ion-button fill="outline" (click)="symbol('4')">4</ion-button>
+    <ion-button fill="outline" (click)="symbol('5')">5</ion-button>
+    <ion-button fill="outline" (click)="symbol('6')">6</ion-button>
+    <ion-button (click)="symbol('*')">×</ion-button>
+  </div>
+  <div>
+    <ion-button fill="outline" (click)="symbol('1')">1</ion-button>
+    <ion-button fill="outline" (click)="symbol('2')">2</ion-button>
+    <ion-button fill="outline" (click)="symbol('3')">3</ion-button>
+    <ion-button (click)="symbol('-')">-</ion-button>
+  </div>
+  <div>
+    <ion-button fill="outline" (click)="symbol('0')">0</ion-button>
+    <ion-button fill="outline" (click)="symbol('.')">.</ion-button>
+    <ion-button (click)="symbol('+')">+</ion-button>
+    <ion-button (click)="calculation()" #total>=</ion-button>
+  </div>
+</ion-content>

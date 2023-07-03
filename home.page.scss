@@ -1,0 +1,28 @@
+.display {
+  width: 180px;
+  height: 50px;
+  text-align: right;
+  background: white;
+  border-top: solid gainsboro 5px;
+  border-bottom: solid gainsboro 5px;
+  border-right: solid gainsboro 5px;
+  border-left: solid gainsboro 5px;
+  border-radius: 10px;
+  font-size: 30px;
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #8c8c8c;
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
