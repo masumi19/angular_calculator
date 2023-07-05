@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,8 @@ export class HomePage implements OnInit {
 
   public display: string = '';
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
   }
@@ -24,6 +25,7 @@ export class HomePage implements OnInit {
   }
 
   calculation() {
-    // ここで計算処理を実行するなどのロジックを追加
+    this.display = eval(this.display);
   }
+
 }
