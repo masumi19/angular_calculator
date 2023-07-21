@@ -8,7 +8,7 @@
 
 <ion-content>
   <div>
-    <ion-input class="display" id="display" [(ngModel)]="display"></ion-input>
+    <ion-input class="display" id="display" #total></ion-input>
     <ion-button size="large" (click)="erase()">C</ion-button>
 </div>
 <div>
@@ -33,6 +33,6 @@
     <ion-button size="large" fill="outline" (click)="symbol('0')">0</ion-button>
     <ion-button size="large" fill="outline" (click)="symbol('.')">.</ion-button>
     <ion-button size="large" (click)="symbol('+')">+</ion-button>
-    <ion-button size="large" (click)="calculation()" #total>=</ion-button>
+    <ion-button size="large" (click)="calculation()">=</ion-button>
   </div>
 </ion-content>

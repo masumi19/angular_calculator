@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {IonButton, IonInput} from "@ionic/angular";
 
 @Component({
   selector: 'app-home',
@@ -6,26 +7,30 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  @ViewChild('total') public total: ElementRef;
 
-  public display: string = '';
+  @ViewChild('total') public total: {
+    el: IonInput
+  };
 
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
+  constructor() {}
+  ngOnInit() {}
+　
+//記号の表示
   symbol(symbol: string) {
-    this.display += symbol;
+    const display = this.total.el.value;
+    this.total.el.value = display + symbol;
   }
 
-  erase() {
-    this.display = '';
+  //消去の表示
+  erase(){
+    this.total.el.value = '';
   }
 
+  //合計の表示
   calculation() {
-    this.display = eval(this.display);
+    const formula = this.total.el.value;
+    this.total.el.value = formula;
+  console.log(this.total.el.value)
   }
 
 }
