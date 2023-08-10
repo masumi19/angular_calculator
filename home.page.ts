@@ -28,9 +28,16 @@ export class HomePage implements OnInit {
 
   //合計の表示
   calculation() {
-    const formula = this.total.el.value;
-    this.total.el.value = formula;
-  console.log(this.total.el.value)
+    const display = this.total.el.value;
+    const formula = Number(display);
+      const result = this.reckoning(formula);
+      this.total.el.value = result.toString();
+    console.log(this.total.el.value);
+
+  }
+  reckoning(display: number): number {
+      const result = display;
+      return result;
   }
 
 }
