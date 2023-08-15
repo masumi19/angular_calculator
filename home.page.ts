@@ -16,17 +16,32 @@ export class HomePage implements OnInit {
     el: IonInput
   };
 
-  constructor() {}
-  ngOnInit() {}
-　
+  constructor() {
+  }
+
+  ngOnInit() {
+  }
+
 //記号の表示
   symbol(symbol: string) {
     if (/^[0-9]*$/.test(symbol)) {
       this.beforeCalc += symbol;
     } else {
-      console.log(this.tmpCalc, this.beforeSymbol);
+      console.log(this.tmpCalc, this.beforeSymbol, this.calc);
       if (this.tmpCalc && this.beforeSymbol === '+') {
         this.calc = this.tmpCalc + Number(this.beforeCalc);
+        this.beforeSymbol = '';
+        console.log(this.calc);
+      } else if (this.tmpCalc && this.beforeSymbol === '-') {
+        this.calc = this.tmpCalc - Number(this.beforeCalc);
+        this.beforeSymbol = '';
+        console.log(this.calc);
+      } else if (this.tmpCalc && this.beforeSymbol === '*') {
+        this.calc = this.tmpCalc * Number(this.beforeCalc);
+        this.beforeSymbol = '';
+        console.log(this.calc);
+      } else if (this.tmpCalc && this.beforeSymbol === '/') {
+        this.calc = this.tmpCalc / Number(this.beforeCalc);
         this.beforeSymbol = '';
         console.log(this.calc);
       }
@@ -35,31 +50,23 @@ export class HomePage implements OnInit {
         this.tmpCalc = Number(this.beforeCalc);
       }
       this.beforeCalc = '';
-      console.log(symbol);
+      console.log(this.beforeCalc);
       this.beforeSymbol = symbol;
+      console.log(symbol);
     }
-
     const display = this.total.el.value;
     this.total.el.value = display + symbol;
   }
 
   //消去の表示
-  erase(){
+  erase() {
     this.total.el.value = '';
   }
 
   //合計の表示
   calculation() {
-    const display = this.total.el.value;
-    console.log(this.total.el.value);
-    const formula = Number(display);
-    const result = this.reckoning(formula);
-    this.total.el.value = result.toString();
-    console.log(this.total.el.value);
+    const symbol = this.total.el.value;
+    let display = new Function('return ' + symbol);
+    this.total.el.value = display().toString();
   }
-  reckoning(display: number): number {
-      const result = display;
-      return result;
-  }
-
 }
